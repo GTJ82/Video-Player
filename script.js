@@ -40,11 +40,27 @@ function stopVideo() {
     video.pause();
 }
 
+// This sets the progress slider at the correct position
 function updateProgress() {
-    return true;
+    progress.value = (video.currentTime / video.duration) * 100
+
+    // Gets minutes
+    let mins = Math.floor(video.currentTime / 60);
+    if (mins < 10) {
+        mins = '0' + mins
+    }
+
+    // Gets seconds
+    let secs = Math.floor(video.currentTime % 60);
+    if (secs < 10) {
+        secs = '0' + secs;
+    }
+
+    timestamp.innerHTML = `${mins}:${secs}`;
 }
 
+// This adds functionality to the slider
 function setVideoProgress() {
-    return true;
+    video.currentTime = (+progress.value * video.duration) / 100;
 }
 
