@@ -34,13 +34,7 @@ function updatePlayIcon() {
     }
 }
 
-// Stops video and returns it to the beginning
-function stopVideo() {
-    video.currentTime = 0;
-    video.pause();
-}
-
-// This sets the progress slider at the correct position
+// This sets the progress slider at the correct position and sets timestamp
 function updateProgress() {
     progress.value = (video.currentTime / video.duration) * 100
 
@@ -58,6 +52,13 @@ function updateProgress() {
 
     timestamp.innerHTML = `${mins}:${secs}`;
 }
+
+// Stops video and returns it to the beginning
+function stopVideo() {
+    video.currentTime = 0;
+    video.pause();
+}
+
 
 // This adds functionality to the slider
 function setVideoProgress() {
